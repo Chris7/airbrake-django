@@ -25,7 +25,7 @@ class Client(object):
         if self.settings['USE_SSL']:
             scheme = 'https'
 
-        return Client.API_URL % scheme
+        return self.settings.get('AIRBRAKE_HOST', Client.API_URL % scheme)
 
     @property
     def settings(self):
